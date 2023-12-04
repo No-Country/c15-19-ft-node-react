@@ -1,5 +1,5 @@
 export default function ExampleComponent() {
     return (
-        <h1>Hola amigos</h1>
+        <h1 className="text-[5rem]">Hola amigos</h1>
     )
 }
