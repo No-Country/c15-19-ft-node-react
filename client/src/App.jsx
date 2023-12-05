@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from '../Pages/Home';
-import { ContextProvider } from "../Context/useContext";
+import Signin from "./pages/Signin/Signin"
+import Home from './pages/Home/home';
+import { ContextProvider } from "./Context/useContext";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <ContextProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<Signin />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
       </ContextProvider>
