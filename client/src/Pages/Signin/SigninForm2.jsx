@@ -1,28 +1,28 @@
 import React from 'react';
 import "./Signin.css";
 
-export default function SigninForm2({ handleChange, handleSubmit, state, setFormularioActual }) {
-    const obtenerFechaMaxima = () => {
-        const fechaActual = new Date();
-        fechaActual.setFullYear(fechaActual.getFullYear() - 18);
-        return fechaActual.toISOString().split('T')[0];
+export default function SigninForm2({ handleChange, handleSubmit, state, setCurrentForm }) {
+    const getMaximumDate = () => {
+        const dateCurrent = new Date();
+        dateCurrent.setFullYear(dateCurrent.getFullYear() - 18);
+        return dateCurrent.toISOString().split('T')[0];
     };
 
     const validateForm = () => {
-        const nuevosErrores = {};
+        const newBugs = {};
 
         // Validar nombre de usuario
         if (state.username.length < 5) {
-            nuevosErrores.name = 'Requerido 5 caracteres';
+            newBugs.name = 'Requerido 5 caracteres';
         }
         // Realiza las validaciones necesarias para el formulario 2
         // Puedes agregar más lógica de validación según tus requisitos
 
         // Ejemplo: Validar que la fecha de nacimiento sea válida (puede ajustarse según tus necesidades)
-        const fechaNacimiento = new Date(state.fechaNacimiento);
-        const fechaMaxima = new Date(obtenerFechaMaxima());
+        const dateBirth = new Date(state.dateBirth);
+        const maximumDate = new Date(getMaximumDate());
 
-        if (fechaNacimiento >= fechaMaxima) {
+        if (dateBirth >= maximumDate) {
             console.log('La fecha de nacimiento no es válida');
             return false;
         }
@@ -45,7 +45,7 @@ export default function SigninForm2({ handleChange, handleSubmit, state, setForm
         // ...
 
         // Cambia al siguiente formulario
-        setFormularioActual(3);
+        setCurrentForm(3);
     };
 
     return (
@@ -75,25 +75,25 @@ export default function SigninForm2({ handleChange, handleSubmit, state, setForm
                     required
                 />
                 <label
-                    className='label--container__div' htmlFor="fechaNacimiento">Fecha de Nacimiento</label>
+                    className='label--container__div' htmlFor="dateBirth">Fecha de Nacimiento</label>
                 <input
                     className='input--registre__user'
                     placeholder="Fecha de Nacimiento"
                     type="date"
-                    id="fechaNacimiento"
-                    name="fechaNacimiento"
-                    value={state.fechaNacimiento}
+                    id="dateBirth"
+                    name="dateBirth"
+                    value={state.dateBirth}
                     onChange={handleChange}
-                    max={obtenerFechaMaxima()}
+                    max={getMaximumDate()}
                     required
                 />
                 <label
-                    className='label--container__div' htmlFor="genero">Género</label>
+                    className='label--container__div' htmlFor="gender">Género</label>
                 <select
                     className='input--registre__user'
-                    id="genero"
-                    name="genero"
-                    value={state.genero}
+                    id="gender"
+                    name="gender"
+                    value={state.gender}
                     onChange={handleChange}
                     required
                 >

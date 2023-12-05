@@ -12,11 +12,11 @@ const initialState = {
     email: "",
     password: "",
     confirmPassword: "",
-    checkTerminos: false,
+    checkTerms: false,
 
 };
 
-const registroReducer = (state, action) => {
+const registrationReducer = (state, action) => {
     switch (action.type) {
         case "ACTUALIZAR_CAMPO":
             return { ...state, [action.field]: action.value };
@@ -28,13 +28,13 @@ const registroReducer = (state, action) => {
 };
 
 export const ContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(registroReducer, initialState);
+    const [state, dispatch] = useReducer(registrationReducer, initialState);
 
-    const actualizarCampo = (field, value) => {
+    const updateField = (field, value) => {
         dispatch({ type: "ACTUALIZAR_CAMPO", field, value });
     };
 
-    const resetFormulario = () => {
+    const resetForm = () => {
         dispatch({ type: "RESET" });
     };
 
@@ -43,11 +43,11 @@ export const ContextProvider = ({ children }) => {
         // Aquí puedes agregar la lógica para enviar los datos del formulario a tu servidor
         console.log("Datos enviados:", state);
         // Luego puedes reiniciar el formulario
-        resetFormulario();
+        resetForm();
     };
 
     return (
-        <MyContext.Provider value={{ state, actualizarCampo, resetFormulario, handleSubmit }}>
+        <MyContext.Provider value={{ state, updateField, resetForm, handleSubmit }}>
             {children}
         </MyContext.Provider>
     );
