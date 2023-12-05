@@ -55,7 +55,7 @@ export default function Signin() {
     };
 
     return (
-        <main className=' flex flex-col justify-center items-center w-[100vw] h-[100vh] p-5'>
+        <section className=' flex flex-col justify-center items-center w-[100vw] h-[100vh] p-5'>
             <h1 className='text-4xl font-bold mt-[2rem]'>Crear cuenta</h1>
             <ul className="flex flex-row items-center mt-[2rem]">
                 <li className={`bg-Green border-Green ${progressBar.step1 ? 'text-white' : 'text-black'}`}>
@@ -95,6 +95,6 @@ export default function Signin() {
                     setCurrentForm={setCurrentForm}
                 />
             )}
-        </main>
+        </section>
     );
 }
