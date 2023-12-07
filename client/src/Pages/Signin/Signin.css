@@ -27,8 +27,8 @@ label{
 
 .input--registre__user{
     height: 2rem;
-    width: 90vw;
-    min-width: 20rem;
+    width: 80vw;
+    min-width: 19rem;
     max-width: 50rem;
     border: solid 1px;
     border-radius: 4px;
