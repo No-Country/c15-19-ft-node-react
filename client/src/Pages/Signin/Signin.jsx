@@ -58,15 +58,15 @@ export default function Signin() {
         <section className=' flex flex-col justify-center items-center w-[100vw] h-[100vh] p-5'>
             <h1 className='text-4xl font-bold mt-[2rem]'>Crear cuenta</h1>
             <ul className="flex flex-row items-center mt-[2rem]">
-                <li className={`bg-Green border-Green ${progressBar.step1 ? 'text-white' : 'text-black'}`}>
+                <li className={`li bg-Green border-Green ${progressBar.step1 ? 'text-white' : 'text-black'}`}>
                     <p>{progressBar.step1 ? '✔' : '1'}</p>
                 </li>
-                <hr className={`min-w-[6.5rem] w-[30vw] ${progressBar.step1 ? 'border-Green' : 'border-black'}`} />
-                <li className={`bg-BlueMarine ${progressBar.step2 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
+                <hr className={` min-w-[6.5rem] w-[30vw] ${progressBar.step1 ? 'border-Green' : 'border-black'}`} />
+                <li className={`li bg-BlueMarine ${progressBar.step2 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
                     <p>{progressBar.step2 ? '✔' : '2'}</p>
                 </li>
                 <hr className={`min-w-[6.5rem] w-[30vw] ${progressBar.step2 ? 'border-Green' : 'border-BlueMarine'}`} />
-                <li className={`bg-BlueMarine ${progressBar.step3 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
+                <li className={`li bg-BlueMarine ${progressBar.step3 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
                     <p>{progressBar.step3 ? '✔' : '3'}</p>
                 </li>
             </ul>

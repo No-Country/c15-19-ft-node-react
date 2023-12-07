@@ -26,10 +26,10 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
         // Validar contraseña
         const passwordRegex = /^.{6,}$/;
         if (state.password !== state.confirmPassword || !passwordRegex.test(state.password)) {
-            nuevosErrores.password = 'Inserta una contraseña valida';
+            newBugs.password = 'Inserta una contraseña valida';
         }
 
-        setErrors(newBugs);
+        setError(newBugs);
         return Object.keys(newBugs).length === 0;
     };
 
