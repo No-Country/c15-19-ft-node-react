@@ -1,4 +1,4 @@
-import CardUser from "../../components/CardUser.jsx/CardUser";
+import CardUser from "../../components/CardUser/CardUser";
 
 import React from "react";
 import tempData from "./temp-data";
