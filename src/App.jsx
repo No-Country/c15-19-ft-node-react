@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import NavBarLower from "./components/NavBarLower/NavBarLower";
-import Signin from "./pages/Signin/Signin";
-import Login from "./pages/Login/login";
-import Home from "./pages/Home/home";
-import Categories from "./pages/Categories/Categories";
-import Profile from "./pages/Profile/Profile";
+import Signin from "./Pages/Signin/Signin";
+import Login from "./Pages/Login/login";
+import Home from "./Pages/Home/home";
+import Categories from "./Pages/Categories/Categories";
+import Profile from "./Pages/Profile/Profile";
 import { ContextProvider } from "./Context/useContext";
 
 export default function App() {
