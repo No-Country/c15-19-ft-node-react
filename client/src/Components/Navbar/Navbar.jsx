@@ -19,7 +19,7 @@ const Navbar = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="w-8 h-8"
           >
@@ -50,12 +50,12 @@ const Navbar = () => {
       {menuOpen && (
         <div className="w-[100%] h-[100vh] absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
           <ul>
-            <li id="darkMode">Modo oscuro</li>
-            <li className="liMenu">Insignias</li>
-            <li className="liMenu">Sincronización</li>
-            <li className="liMenu">Privacidad</li>
-            <li className="liMenu">Seguridad</li>
-            <li id="closeSession">Cerrar sesión</li>
+            <li className="liLogin" id="darkMode">Modo oscuro</li>
+            <li className="liMenu liLogin">Insignias</li>
+            <li className="liMenu liLogin">Sincronización</li>
+            <li className="liMenu liLogin">Privacidad</li>
+            <li className="liMenu liLogin">Seguridad</li>
+            <li className="liLogin" id="closeSession">Cerrar sesión</li>
           </ul>
         </div>
       )}

@@ -8,14 +8,17 @@ import NavBarInf from './Components/NavBarInf/NavBarInf'
 
 
 export default function App() {
+
   return (
     <Router>
       <ContextProvider>
         <NavBarInf />
-        <Routes>
+          <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/login' element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/profile/" element={<Profile />} />
+
           {/* Agrega más rutas según sea necesario */}
         </Routes>
       </ContextProvider>
