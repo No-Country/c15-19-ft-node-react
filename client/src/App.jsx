@@ -1,18 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from "./Pages/Login/Login.jsx"
-import Navbar from "./Components/Navbar/Navbar.jsx"
-import Home from './Pages/Home/index.jsx';
-import { ContextProvider } from "./Context/useContext.jsx";
+import Signin from "./pages/Signin/Signin"
+import Home from './pages/Home/home';
+import { ContextProvider } from "./Context/useContext";
 
 export default function App() {
   return (
     <Router>
       <ContextProvider>
-          <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/signin" element={<Signin />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
       </ContextProvider>
