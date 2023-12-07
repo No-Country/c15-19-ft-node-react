@@ -7,3 +7,21 @@ body{
     font-family: 'Poppins', sans-serif;
 
 }
+
+@layer components{
+    .navbarinf-icon{
+        @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto rounded-lg hover:bg-white hover:text-BlueMarine hover:rounded-xl transition-all cursor-pointer;
+    }
+
+    .navbarinf-tooltip{
+        @apply absolute p-2 m-2 min-w-max bottom-14 rounded-md shadow-md text-white bg-blue-gray-600 text-xs font-bold transition-all duration-100 scale-0 origin-bottom;
+    }
+
+    .navbarinfnew-icon{
+        @apply relative flex bottom-8 items-center justify-center h-20 w-20 bg-BlueMarine text-white  hover:bg-white hover:text-BlueMarine rounded-full transition-all cursor-pointer;
+    }
+
+    .navbarinfnew-tooltip{
+        @apply absolute p-2 m-2 min-w-max bottom-20 rounded-md shadow-md text-white bg-blue-gray-600 text-xs font-bold transition-all duration-100 scale-0 origin-bottom;
+    }
+}
