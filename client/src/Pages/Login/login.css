@@ -1,0 +1,14 @@
+.inputRegistreUser{
+    height: 2rem;
+    width: 80vw;
+    min-width: 20rem;
+    max-width: 25rem;
+    border: solid 1px;
+    border-radius: 4px;
+    padding-left:.5rem;
+    padding-right: .5rem;
+    color: rgb(73, 73, 73);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
