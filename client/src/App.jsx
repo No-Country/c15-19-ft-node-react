@@ -1,23 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Signin from "./Pages/Signin/Signin";
-import Login from './Pages/Login/login';
-import Home from './Pages/Home/home';
-import Categories from './Pages/Categories/Categories';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Signin from "./pages/Signin/Signin";
+import Home from "./pages/Home/Home";
+import Profile from "./Pages/Profile/Profile";
 import { ContextProvider } from "./Context/useContext";
+import NavBarInf from './Components/NavBarInf/NavBarInf'
+
 
 export default function App() {
 
   return (
     <Router>
       <ContextProvider>
-        <Navbar />
-        <Routes>
+        <NavBarInf />
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path='/categories' element={<Categories />} />
+          <Route path="/profile/" element={<Profile />} />
+
           {/* Agrega más rutas según sea necesario */}
         </Routes>
       </ContextProvider>
