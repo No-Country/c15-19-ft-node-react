@@ -6,9 +6,10 @@ import {
   MoreOutlined,
 } from "@ant-design/icons";
 import { Card, Space, Avatar, Image } from "antd";
-import "./cardUser.css";
+import "./CardUser.css";
 
 const { Meta } = Card;
+
 function CardUser(data) {
   const { avatar, title, banner, description, socialNetwork } = data;
 
