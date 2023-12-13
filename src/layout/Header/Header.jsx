@@ -1,15 +1,20 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <div className="relative bg-[#00D4A4] flex justify-end h-10">
+    <div className="z-20 relative bg-[#00D4A4] flex justify-end h-10">
       <button
         className="text-black focus:outline-none mx-3"
         onClick={toggleMenu}
@@ -50,12 +55,30 @@ const Header = () => {
       {menuOpen && (
         <div className="w-[100%] h-[100vh] absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
           <ul>
-            <li className="liLogin" id="darkMode">Modo oscuro</li>
-            <li className="liMenu liLogin">Insignias</li>
-            <li className="liMenu liLogin">Sincronización</li>
-            <li className="liMenu liLogin">Privacidad</li>
-            <li className="liMenu liLogin">Seguridad</li>
-            <li className="liLogin" id="closeSession">Cerrar sesión</li>
+            <li className="liLogin" id="darkMode">
+              Modo oscuro
+            </li>
+            <li className="liMenu liLogin">
+              <p className="text-black">
+                <Link to="/profile/achievements" onClick={closeMenu}>
+                  Logros
+                </Link>
+              </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/sync" onClick={closeMenu}>Sync 
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/privacy" onClick={closeMenu}>Privacy
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/security" onClick={closeMenu}>Security
+            </Link>
+            </p></li>
+            <li className="liLogin" id="closeSession">
+              Cerrar sesión
+            </li>
           </ul>
         </div>
       )}
