@@ -7,9 +7,19 @@
       "default",
       {
         "ignore": [
-          "-webkit-text-size-adjust"
+          "-webkit-text-size-adjust",
+          "@layer"
         ]
       }
     ]
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 116",
+    "not chrome <= 116",
+    "not edge <= 116",
+    "not opera <= 102",
+    "not samsung <= 22"
+  ]
 }

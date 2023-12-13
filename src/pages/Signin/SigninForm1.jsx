@@ -12,8 +12,9 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
         const newBugs = {};
 
         // Validar nombre de usuario
-        if (state.username.length < 5) {
-            newBugs.username = 'Requerido 5 caracteres';
+        const usernameRegex = /^(?=.*[A-Z])(?=.*\d).{1,18}$/;
+        if (!usernameRegex.test(state.username)) {
+            newBugs.username = 'Requiere al menos 1 mayúscula, 1 número y máximo 18 caracteres';
         }
 
         // Validar formato de email
@@ -24,9 +25,9 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
         }
 
         // Validar contraseña
-        const passwordRegex = /^.{6,}$/;
-        if (state.password !== state.confirmPassword || !passwordRegex.test(state.password)) {
-            newBugs.password = 'Inserta una contraseña valida';
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{6,24}$/;
+        if (!passwordRegex.test(state.password) || state.password !== state.confirmPassword) {
+            newBugs.password = 'Debe tener al menos 1 letra, 1 número y estar entre 6 y 24 caracteres';
         }
 
         setError(newBugs);
@@ -59,11 +60,11 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
             >
                 <div className="label--container__div">
 
-                    <label htmlFor="username" className="md:text-xl">Nombre de usuario</label>
+                    <label htmlFor="username" className="md:text-xl dark:text-white">Nombre de usuario</label>
                     {error.username && <p className="text-red-500 text-xs">{error.username}</p>}
                 </div>
                 <input
-                    className={`input--registre__user ${error.nombre ? 'border-red-500' : ''}`}
+                    className={`input--registre__user dark:placeholder:text-gray-500 ${error.nombre ? 'border-red-500' : ''}`}
                     placeholder='Nombre de usuario'
                     type="text"
                     id="username"
@@ -73,11 +74,11 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
                     required
                 />
                 <div className="label--container__div">
-                    <label htmlFor="email" className="md:text-xl" >Email</label>
+                    <label htmlFor="email" className="md:text-xl dark:text-white" >Email</label>
                     {error.email && <p className="text-red-500 text-xs text-right">{error.email}</p>}
                 </div>
                 <input
-                    className={`input--registre__user ${error.email ? 'border-red-500' : ''}`}
+                    className={`input--registre__user dark:placeholder:text-gray-500 ${error.email ? 'border-red-500' : ''}`}
                     placeholder='Email'
                     type="email"
                     id="email"
@@ -87,11 +88,11 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
                     required
                 />
                 <div className="label--container__div md:text-xl">
-                    <label htmlFor="password" className="md:text-xl">Contraseña</label>
+                    <label htmlFor="password" className="md:text-xl dark:text-white">Contraseña</label>
                     {error.password && <p className="text-red-500 text-xs text-right">{error.password}</p>}
                 </div>
                 <input
-                    className={`input--registre__user ${error.password ? 'border-red-500' : ''}`}
+                    className={`input--registre__user dark:placeholder:text-gray-500 ${error.password ? 'border-red-500' : ''}`}
                     placeholder='Contraseña'
                     type="password"
                     id="password"
@@ -101,9 +102,9 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
                     required
                 />
 
-                <label htmlFor="confirmPassword" className="label--container__div md:text-xl">Confirmar contraseña</label>
+                <label htmlFor="confirmPassword" className="label--container__div md:text-xl dark:text-white">Confirmar contraseña</label>
                 <input
-                    className={`input--registre__user ${error.password ? 'border-red-500' : ''}`}
+                    className={`input--registre__user dark:placeholder:text-gray-500 ${error.password ? 'border-red-500' : ''}`}
                     placeholder='Confirmar contraseña'
                     type="password"
                     id="confirmPassword"
@@ -114,7 +115,7 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
                 />
                 <div className="mt-[3rem]">
                     {error.agreeToTerms && <p className="text-red-500 mt-[1rem] text-xs text-center mb-[-0.5rem]">{error.agreeToTerms}</p>}
-                    <label className='flex justify-center items-center mb-4 label--container__div'>
+                    <label className='flex justify-center items-center mb-4 label--container__div dark:text-white'>
                         <input
                             className='h-4 w-4 mx-2'
                             type="checkbox"
@@ -128,7 +129,7 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
 
                 </div>
                 <button
-                    className='w-[10rem] h-[3rem] mx-auto bg-Green text-white rounded-3xl'
+                    className='w-[10rem] h-[3rem] mx-auto bg-GreenDefaultSolid active:bg-GreenHoverSolid hover:bg-GreenActiveSolid text-white hover:text-TextGreen active:text-white rounded-3xl'
                     type="submit"
                     onClick={() => setCurrentForm(1)}
                 >

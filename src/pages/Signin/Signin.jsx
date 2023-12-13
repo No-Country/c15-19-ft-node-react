@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import SigninForm1 from "./SigninForm1.jsx";
-import SigninForm2 from "./SigninForm2.jsx";
-import SigninForm3 from "./SigninForm3.jsx";
-
-import MyContextProvider from "../../context/useContext.jsx";
-import "./Signin.css";
+import SigninForm2 from './SigninForm2.jsx';
+import SigninForm3 from './SigninForm3.jsx';
+import MyContextProvider from '../../Context/useContext.jsx';
+import './Signin.css';
 
 export default function Signin() {
   const { state, updateField, resetForm } = MyContextProvider();
@@ -23,7 +22,7 @@ export default function Signin() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "checkbox") {
+    if (type === 'checkbox') {
       updateField(name, checked);
     } else {
       updateField(name, value);
@@ -34,11 +33,11 @@ export default function Signin() {
     e.preventDefault();
 
     if (!state.agreeToTerms) {
-      console.log("Debes aceptar los términos y condiciones");
+      console.log('Debes aceptar los términos y condiciones');
       return;
     }
 
-    console.log("Datos enviados:", state);
+    console.log('Datos enviados:', state);
 
     resetForm();
 
@@ -55,43 +54,19 @@ export default function Signin() {
   };
 
   return (
-    <section className=" flex flex-col justify-center items-center w-[100vw] h-[90vh] p-5">
-      <h1 className="text-4xl font-bold mt-[2rem]">Crear cuenta</h1>
+    <section className=' flex flex-col justify-center items-center w-[100vw] h-[90vh] p-5'>
+      <h1 className='text-4xl font-bold mt-[2rem] dark:text-white'>Crear cuenta</h1>
       <ul className="flex flex-row items-center mt-[2rem]">
-        <li
-          className={`li bg-Green border-Green ${
-            progressBar.step1 ? "text-white" : "text-black"
-          }`}
-        >
-          <p>{progressBar.step1 ? "✔" : "1"}</p>
+        <li className={`li bg-Green border-Green ${progressBar.step1 ? 'text-white' : 'text-black'}`}>
+          <p className='text-TitleGreen'>{progressBar.step1 ? '✔' : '1'}</p>
         </li>
-        <hr
-          className={` min-w-[6.5rem] w-[30vw] ${
-            progressBar.step1 ? "border-Green" : "border-black"
-          }`}
-        />
-        <li
-          className={`li bg-BlueMarine ${
-            progressBar.step2
-              ? "text-white bg-Green border-Green"
-              : "text-black"
-          }`}
-        >
-          <p>{progressBar.step2 ? "✔" : "2"}</p>
+        <hr className={` min-w-[6.5rem] w-[30vw] ${progressBar.step1 ? 'border-Green' : 'border-black'}`} />
+        <li className={`li bg-BlueMarine ${progressBar.step2 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
+          <p className='text-TitleGreen'>{progressBar.step2 ? '✔' : '2'}</p>
         </li>
-        <hr
-          className={`min-w-[6.5rem] w-[30vw] ${
-            progressBar.step2 ? "border-Green" : "border-BlueMarine"
-          }`}
-        />
-        <li
-          className={`li bg-BlueMarine ${
-            progressBar.step3
-              ? "text-white bg-Green border-Green"
-              : "text-black"
-          }`}
-        >
-          <p>{progressBar.step3 ? "✔" : "3"}</p>
+        <hr className={`min-w-[6.5rem] w-[30vw] ${progressBar.step2 ? 'border-Green' : 'border-gray-500'}`} />
+        <li className={`li bg-BlueMarine ${progressBar.step3 ? 'text-white bg-Green border-Green' : 'text-black'}`}>
+          <p className='text-TitleGreen'>{progressBar.step3 ? '✔' : '3'}</p>
         </li>
       </ul>
       {currentForm === 1 && (

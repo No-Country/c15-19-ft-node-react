@@ -1,117 +1,61 @@
-import { useState } from "react";
-export default function Categories() {
-    const [searchTerm, setSearchTerm] = useState('');
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import SearchInput from "../../components/SearchInput/SearchInput";
+import * as categoryService from "../../Utils/apiCategoryService";
 
-    const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
+const Categories = () => {
+    const [categories, setCategories] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    useEffect(() => {
+        categoryService.getAllCategories()
+            .then(data => {
+                setCategories(data);
+            })
+            .catch(error => console.error("Error fetching categories:", error));
+    }, []);
+
+    useEffect(() => {
+        filterCategories();
+    }, [searchTerm, categories]);
+
+    const filterCategories = () => {
+        let filteredCategories = categories;
+
+        if (searchTerm) {
+            filteredCategories = filteredCategories.filter(category =>
+                category.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
+        setFilteredData(filteredCategories);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aquí puedes realizar alguna acción con el valor de búsqueda (searchTerm)
-        console.log('Búsqueda enviada:', searchTerm);
+    const handleSearch = (term) => {
+        setSearchTerm(term);
     };
+
     return (
-        <section className="flex w-[100vw] h-[90vh] min-w-[20rem] max-w-[100vw] flex-col justify-start items-center mt-[4rem]">
-            <form className="w-[18rem] flex items-center justify-center bg-gray-50 h-[3rem] px-[1rem] border-2 rounded-full shadow-xl fixed " onSubmit={handleSubmit}>
-                <input className=" py-1 px-2 mr-3 rounded-xl placeholder:font-light outline-none"
-                    type="text"
-                    id="search"
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                    placeholder="Buscar"
-                />
-                <button className="" type="submit"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#6B7280" className="w-5 h-5">
-                    <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
-                </svg></button>
-            </form>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[14rem] h-[14rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[14rem] h-[14rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[14rem] h-[14rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[14rem] h-[14rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[14rem] h-[14rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
-            <article className="mt-[4rem] w-[21rem]">
-                <div className="flex justify-between items-center mb-[.5rem]">
-                    <h2 className="m-0">GymChallenge</h2>
-                    <a className="cursor-pointer text-black text-xs hover:underline" href="http://">Ver más</a>
-                </div>
-                <div className="flex w-[90vw] overflow-x-scroll whitespace-nowrap">
-                    <img src="imagen1.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen2.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen3.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    <img src="imagen4.jpg" className="bg-black w-[10rem] h-[10rem] flex-shrink-0 mr-4" alt="" />
-                    {/* Añade más imágenes según sea necesario */}
-                </div>
-            </article>
+        <section className="flex flex-col justify-items-center mt-[4rem]">
+            <SearchInput onSearch={handleSearch} />
 
-
-
+            {filteredData.map((category, index) => (
+                <article key={index} className="flex flex-col items-start mt-[2rem] w-[84vw] mx-[2rem]">
+                    <div className="flex flex-row justify-between items-center mb-[.5rem] w-[85vw]">
+                        <h2 className="m-0 dark:text-white">{category.name}</h2>
+                        <Link
+                            to={`/categories/${category._id}`} // Ajusta la ruta según tu estructura de rutas
+                            className="cursor-pointer text-black text-xs hover:underline dark:text-white lg:mr-[2rem]"
+                        >
+                            Ver más
+                        </Link>
+                    </div>
+                    {/* Puedes agregar aquí la lógica para cargar las imágenes de la categoría */}
+                </article>
+            ))}
         </section>
-    )
-}
+    );
+};
+
+export default Categories;
