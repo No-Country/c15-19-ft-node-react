@@ -8,7 +8,7 @@ import Home from "../pages/Home/Home";
 import Categories from "../pages/Categories/Categories";
 import Category from "../pages/Categories/Category";
 import Profile from "../pages/Profile/Profile";
-import { ContextProvider } from "../Context/useContext";
+import { ContextProvider } from "../context/useContext";
 
 export default function App() {
   return (

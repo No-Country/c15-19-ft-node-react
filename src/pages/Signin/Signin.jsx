@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SigninForm1 from "./SigninForm1.jsx";
 import SigninForm2 from "./SigninForm2.jsx";
 import SigninForm3 from "./SigninForm3.jsx";
-import MyContextProvider from "../../Context/useContext.jsx";
+import MyContextProvider from "../../context/useContext.jsx";
 import "./Signin.css";
 
 export default function Signin() {
