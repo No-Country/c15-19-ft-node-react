@@ -4,7 +4,7 @@ export default function ButtonToggle() {
     // Inicializa el estado con el valor almacenado en localStorage o el valor predeterminado del sistema
     const [darkMode, setDarkMode] = useState(() => {
         const savedTheme = localStorage.getItem("theme");
-        return savedTheme === "dark" || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        return savedTheme === "dark" || (savedTheme === null && window.matchMedia("(prefers-color-scheme: dark)").matches);
     });
 
     // Actualiza el tema y guarda en localStorage cuando cambia el estado del toggle
