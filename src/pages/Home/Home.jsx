@@ -1,6 +1,6 @@
 import CardUser from "../../components/CardUser/CardUser";
 import React, { useEffect, useState } from "react";
-import Api from "../../utils_/api";
+import Api from "../../utils/api";
 
 function Home() {
   const [cards, setCards] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchInput from "../../components/SearchInput/SearchInput";
-import * as categoryService from "../../utils_/apiCategoryService";
+import * as categoryService from "../../utils/apiCategoryService";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
