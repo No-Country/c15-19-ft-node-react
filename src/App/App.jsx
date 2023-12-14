@@ -9,6 +9,7 @@ import Categories from "../pages/Categories/Categories";
 import Category from "../pages/Categories/Category";
 import Profile from "../pages/Profile/Profile";
 import { ContextProvider } from "../context/useContext";
+import CrearPost from "../pages/CreatePost/CreatePost";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:categoryId" component={Category} />
           <Route path="/profile/" element={<Profile />} />
+          <Route path="/createpost" element={<CrearPost />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
         <NavBarLower />
