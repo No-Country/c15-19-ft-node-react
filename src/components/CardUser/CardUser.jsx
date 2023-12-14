@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   LikeOutlined,
   CommentOutlined,
   ShareAltOutlined,
   MoreOutlined,
+  UserAddOutlined,
+  LikeTwoTone,
 } from "@ant-design/icons";
 import { Card, Space, Avatar, Image } from "antd";
-import "./cardUser.css";
+import "./CardUser.css";
 
 const { Meta } = Card;
+
 function CardUser(data) {
-  const { avatar, title, banner, description, socialNetwork } = data;
+  const { avatar, title, media, description, comments } = data;
+
+  const [likes, setLike] = useState(false);
+
+  const handleCardLike = () => {
+    setLike(!likes);
+  };
+
+  const imagePlaceholder =
+    "https://www.cronobierzo.es/wp-content/uploads/2020/01/no-image.jpg";
 
   return (
     <div className="flex flex-col m-4">
@@ -25,7 +37,11 @@ function CardUser(data) {
         >
           <>
             <div className="flex justify-between">
-              <Avatar src={avatar} />
+              <Avatar
+                src={avatar}
+                icon={<UserAddOutlined />}
+                style={{ backgroundColor: "#87d068" }}
+              />
               <MoreOutlined />
             </div>
 
@@ -36,21 +52,25 @@ function CardUser(data) {
             <div className="cardUserImageContainer">
               <Image
                 alt="example"
-                src={banner}
+                src={media[0]?.url || imagePlaceholder}
                 className="object-cover	w-full h-full"
               />
             </div>
             <div className="flex justify-start cardUserSocial">
-              <div>
-                <LikeOutlined size={10} className="cardUserIcon" />
-                {socialNetwork.likes}
-              </div>
+              <button onClick={handleCardLike}>
+                {likes ? (
+                  <LikeTwoTone size={15} className="cardUserIcon" />
+                ) : (
+                  <LikeOutlined className="cardUserIcon" size={10} />
+                )}
+                {likes ? "1" : "0"}
+              </button>
 
               <div>
                 <CommentOutlined className="cardUserIcon" size={10} />
-                {socialNetwork.comments}
+                {comments}
               </div>
-              <ShareAltOutlined size={10} />
+              <ShareAltOutlined size={25} />
             </div>
           </>
         </Card>
