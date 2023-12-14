@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ButtonToggle from "../../components/ButtonToggle/ButtonToggle"
 import "./Header.css";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -51,6 +56,30 @@ const Header = () => {
       {menuOpen && (
         <div className="w-[100vw] h-[100vh] dark:bg-[#27272a] dark:text-white absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
           <ul>
+            <li className="liLogin" id="darkMode">
+              Modo oscuro
+            </li>
+            <li className="liMenu liLogin">
+              <p className="text-black">
+                <Link to="/profile/achievements" onClick={closeMenu}>
+                  Logros
+                </Link>
+              </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/sync" onClick={closeMenu}>Sync 
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/privacy" onClick={closeMenu}>Privacy
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin"><p className="text-black"><Link to="/profile/security" onClick={closeMenu}>Security
+            </Link>
+            </p></li>
+            <li className="liLogin" id="closeSession">
+              Cerrar sesión
+            </li>
             <li className="liLogin flex items-center" id="darkMode"><p className="text-black dark:text-white">Modo Oscuro</p><ButtonToggle /></li>
             <li className="liMenu liLogin">Insignias</li>
             <li className="liMenu liLogin">Sincronización</li>
