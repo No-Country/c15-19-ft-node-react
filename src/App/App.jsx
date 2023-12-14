@@ -17,12 +17,16 @@ export default function App() {
       <ContextProvider>
         <Header />
         <Routes>
-          <Route path="/home" element={<Home />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/categories/:categoryId" component={Category} />
+
+          
           <Route path="/profile/:id" element={<Profile />} />
+
+          <Route path="/categories/:name" element={<Category />} />
+         
           <Route path="/createpost" element={<CrearPost />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
