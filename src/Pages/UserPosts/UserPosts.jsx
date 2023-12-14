@@ -1,6 +1,6 @@
 import React from "react";
 import "./useposts.css";
-export const UserPosts = (props) => {
+const UserPosts = (props) => {
   const usersProp = props.user;
 
   return (
@@ -32,3 +32,4 @@ export const UserPosts = (props) => {
     </div>
   );
 };
+export default UserPosts;

@@ -12,7 +12,6 @@ import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
 
 export default function App() {
-  const { id } = useParams();
   return (
     <Router>
       <ContextProvider>
@@ -27,7 +26,7 @@ export default function App() {
           <Route path="/createpost" element={<CrearPost />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
-        <NavBarLower id={id} />
+        <NavBarLower />
       </ContextProvider>
     </Router>
   );

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Loading } from "../Loading/Loading";
+import React, { useState } from "react";
+import Loading from "../Loading/Loading";
 import profilePic from "../../images/userimg.png";
 const MyProfile = (props) => {
   const [loading, setLoading] = useState(false);
