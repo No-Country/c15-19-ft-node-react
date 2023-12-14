@@ -2,16 +2,14 @@ import { FaHouse, FaPlus } from "react-icons/fa6";
 import { MdMessage } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
-import { useLocation } from 'react-router-dom';
-
+import { useLocation } from "react-router-dom";
 
 const withouSidebarRoutes = ["/createpost", "/signin", "/login"];
 
 function NavBarLower() {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   if (withouSidebarRoutes.some((item) => pathname.includes(item))) return null;
-
 
   return (
     <div className="fixed bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">

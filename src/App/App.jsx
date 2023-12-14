@@ -21,8 +21,11 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
+
+          <Route path="/profile/:id" element={<Profile />} />
+
           <Route path="/categories/:name" element={<Category />} />
-          <Route path="/profile/" element={<Profile />} />
+
           <Route path="/createpost" element={<CrearPost />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
