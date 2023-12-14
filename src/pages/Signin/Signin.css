@@ -6,8 +6,8 @@
     height: 2.5rem;
     border: solid 1px;
     border-radius: 100%;
-    border-color: #001F3F;
-    background-color: #001F3F;
+    border-color: gray;
+    background-color: white;
 
 }
 li>p{

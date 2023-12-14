@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ButtonToggle from "../../components/ButtonToggle/ButtonToggle"
 import "./Header.css";
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="z-20 relative bg-[#00D4A4] flex justify-end h-10">
+    <div className="relative dark:text-white bg-Green flex justify-end h-10">
       <button
         className="text-black focus:outline-none mx-3"
         onClick={toggleMenu}
@@ -53,7 +54,7 @@ const Header = () => {
       </button>
 
       {menuOpen && (
-        <div className="w-[100%] h-[100vh] absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
+        <div className="w-[100vw] h-[100vh] dark:bg-[#27272a] dark:text-white absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
           <ul>
             <li className="liLogin" id="darkMode">
               Modo oscuro
@@ -79,6 +80,12 @@ const Header = () => {
             <li className="liLogin" id="closeSession">
               Cerrar sesión
             </li>
+            <li className="liLogin flex items-center" id="darkMode"><p className="text-black dark:text-white">Modo Oscuro</p><ButtonToggle /></li>
+            <li className="liMenu liLogin">Insignias</li>
+            <li className="liMenu liLogin">Sincronización</li>
+            <li className="liMenu liLogin">Privacidad</li>
+            <li className="liMenu liLogin">Seguridad</li>
+            <li className="liLogin" id="closeSession">Cerrar sesión</li>
           </ul>
         </div>
       )}

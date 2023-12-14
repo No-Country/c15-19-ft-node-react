@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SigninForm1 from "./SigninForm1.jsx";
 import SigninForm2 from "./SigninForm2.jsx";
 import SigninForm3 from "./SigninForm3.jsx";
-
 import MyContextProvider from "../../context/useContext.jsx";
 import "./Signin.css";
 
@@ -56,14 +55,16 @@ export default function Signin() {
 
   return (
     <section className=" flex flex-col justify-center items-center w-[100vw] h-[90vh] p-5">
-      <h1 className="text-4xl font-bold mt-[2rem]">Crear cuenta</h1>
+      <h1 className="text-4xl font-bold mt-[2rem] dark:text-white">
+        Crear cuenta
+      </h1>
       <ul className="flex flex-row items-center mt-[2rem]">
         <li
           className={`li bg-Green border-Green ${
             progressBar.step1 ? "text-white" : "text-black"
           }`}
         >
-          <p>{progressBar.step1 ? "✔" : "1"}</p>
+          <p className="text-TitleGreen">{progressBar.step1 ? "✔" : "1"}</p>
         </li>
         <hr
           className={` min-w-[6.5rem] w-[30vw] ${
@@ -77,11 +78,11 @@ export default function Signin() {
               : "text-black"
           }`}
         >
-          <p>{progressBar.step2 ? "✔" : "2"}</p>
+          <p className="text-TitleGreen">{progressBar.step2 ? "✔" : "2"}</p>
         </li>
         <hr
           className={`min-w-[6.5rem] w-[30vw] ${
-            progressBar.step2 ? "border-Green" : "border-BlueMarine"
+            progressBar.step2 ? "border-Green" : "border-gray-500"
           }`}
         />
         <li
@@ -91,7 +92,7 @@ export default function Signin() {
               : "text-black"
           }`}
         >
-          <p>{progressBar.step3 ? "✔" : "3"}</p>
+          <p className="text-TitleGreen">{progressBar.step3 ? "✔" : "3"}</p>
         </li>
       </ul>
       {currentForm === 1 && (
