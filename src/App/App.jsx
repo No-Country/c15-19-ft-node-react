@@ -6,6 +6,7 @@ import Signin from "../pages/Signin/Signin";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import Categories from "../pages/Categories/Categories";
+import Category from "../pages/Categories/Category";
 import Profile from "../pages/Profile/Profile";
 import { ContextProvider } from "../context/useContext";
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:categoryId" component={Category} />
           <Route path="/profile/" element={<Profile />} />
           {/* Agrega más rutas según sea necesario */}
         </Routes>
