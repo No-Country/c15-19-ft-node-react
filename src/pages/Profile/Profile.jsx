@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+import UserPosts from "../../../src/pages/UserPosts/UserPosts";
+import { Loading } from "../../../src/pages/Loading/Loading";
 import MyProfile from "./MyProfile";
 
 const Profile = () => {
@@ -32,6 +33,7 @@ const Profile = () => {
       ) : (
         <div>
           <MyProfile user={user} />
+          <UserPosts user={user} />
         </div>
       )}
     </>
