@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerUser } from "../../Utils/apiServiceRegister";
+import { registerUser } from "../../utils/apiServiceRegister";
 import "./Signin.css";
 import useMyContext from "../../context/useContext"; // Reemplaza con la ruta correcta de tu archivo de contexto
 
