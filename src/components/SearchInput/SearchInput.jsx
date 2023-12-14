@@ -50,7 +50,7 @@ const SearchInput = ({ onSearch, onFilterChange }) => {
           </svg>
         </button>
       </form>
-      <form className="hidden lg:block" action="filtered">
+      <button className="hidden lg:block" action="filtered">
         <label className="dark:text-white text-lg mx-3" htmlFor="filter">
           Filtrar Categorias
         </label>
@@ -66,7 +66,7 @@ const SearchInput = ({ onSearch, onFilterChange }) => {
           <option value="created">Categorías Creadas</option>
           <option value="name">Filtrar por Nombre</option>
         </select>
-      </form>
+      </button>
     </article>
   );
 };
