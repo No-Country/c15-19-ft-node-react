@@ -1,16 +1,85 @@
-.cardUserDescription {
+.card-user__description {
   margin: 20px 0;
   width: 250px;
+  font-size: 16px;
 }
 
-.cardUserImageContainer {
+.card-user__title {
+  font-weight: 600;
+}
+
+.card-user__subtitle .card-user__image-container {
   margin: 14px auto;
 }
 
-.cardUserSocial {
+.card-user__social {
   gap: 30px;
 }
 
-.cardUserIcon {
+.card-user__icon {
   margin: 0 10px;
+}
+
+/* Media query para escritorio */
+@media screen and (min-width: 800px) {
+  .card-user__container {
+    align-items: center;
+  }
+
+  .card-user__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .card-user__avatar-icon {
+    font-size: 2.5rem;
+    padding: 10px;
+  }
+
+  .card-user__icon-lined {
+    font-size: 30px;
+  }
+
+  .card-user__description {
+    width: 520px;
+    overflow: hidden;
+  }
+
+  .card-user__title {
+    font-size: 2rem;
+    overflow-wrap: break-word;
+  }
+
+  .card-user__subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    overflow-wrap: break-word;
+  }
+
+  .card-user__image-container {
+    width: 520px;
+    height: 520px;
+  }
+
+  .card-user__social {
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+  }
+
+  .card-user__icon {
+    font-size: 30px;
+    margin: 0 50px 0 0;
+  }
+
+  .card-user__icon_margin {
+    margin: 0 30px;
+  }
+
+  .card-user__number {
+    font-size: 30px;
+    margin: 0 auto;
+  }
 }
