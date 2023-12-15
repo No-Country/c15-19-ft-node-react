@@ -10,26 +10,25 @@ import Category from "../pages/Categories/Category";
 import Profile from "../pages/Profile/Profile";
 import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
+import Error from "../pages/Error/Error";
+import Wrapper from "../pages/Wrapper/Wrapper";
 
 export default function App() {
   return (
     <Router>
       <ContextProvider>
-        <Header />
         <Routes>
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/categories" element={<Categories />} />
-
-          <Route path="/profile/:id" element={<Profile />} />
-
-          <Route path="/categories/:name" element={<Category />} />
-
-          <Route path="/createpost" element={<CrearPost />} />
-          {/* Agrega más rutas según sea necesario */}
+          <Route exact path="/" element={<Wrapper />}>
+            <Route index element={<Home />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/categories/:name" element={<Category />} />
+            <Route path="/createpost" element={<CrearPost />} />
+          </Route>
+          <Route path="*" element={<Error />} />
         </Routes>
-        <NavBarLower />
       </ContextProvider>
     </Router>
   );
