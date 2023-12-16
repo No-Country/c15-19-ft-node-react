@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "../layout/Header/Header";
 import NavBarLower from "../components/NavBarLower/NavBarLower";
-import Signin from "../pages/Signin/Signin";
+import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
 import Categories from "../pages/Categories/Categories";
@@ -17,7 +17,7 @@ export default function App() {
       <ContextProvider>
         <Header />
         <Routes>
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
