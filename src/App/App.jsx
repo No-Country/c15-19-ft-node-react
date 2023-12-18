@@ -14,12 +14,13 @@ import Privacy from "../pages/Privacy/Privacy";
 import Security from "../pages/Security/Security"
 import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
+import Error from "../pages/Error/Error";
+import Wrapper from "../pages/Wrapper/Wrapper";
 
 export default function App() {
   return (
     <Router>
       <ContextProvider>
-        <Header />
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
@@ -36,9 +37,9 @@ export default function App() {
           <Route path="/categories/:name" element={<Category />} />
 
           <Route path="/createpost" element={<CrearPost />} />
-          {/* Agrega más rutas según sea necesario */}
+        
+          <Route path="*" element={<Error />} />
         </Routes>
-        <NavBarLower />
       </ContextProvider>
     </Router>
   );
