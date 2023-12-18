@@ -3,6 +3,7 @@ import { MdMessage } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const withouSidebarRoutes = ["/createpost", "/signin", "/login"];
 
@@ -13,21 +14,21 @@ function NavBarLower() {
 
   return (
     <div className="fixed bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">
-      <a href="/home">
+      <Link to="/home">
         <NavBarInfIcon icon={<FaHouse size="20" />} text="Home" />
-      </a>
-      <a href="/categories">
+      </Link>
+      <Link to="/categories">
         <NavBarInfIcon icon={<FaSearch size="20" />} text="Categories" />
-      </a>
-      <a href="/createpost">
+      </Link>
+      <Link to="/createpost">
         <NavBarInfNew icon={<FaPlus size="30" />} text="New" />
-      </a>
-      <a href="/">
+      </Link>
+      <Link to="/">
         <NavBarInfIcon icon={<MdMessage size="20" />} text="Messages" />
-      </a>
-      <a href="/profile/:id">
+      </Link>
+      <Link to="/profile/:id">
         <NavBarInfIcon icon={<IoPerson size="20" />} text="Profile" />
-      </a>
+      </Link>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Login() {
           action="login"
           className="w-[100vw]: px-4 h-screen flex flex-col justify-center  md:w-[100%] text-base md:text-[20px]   "
         >
-          <label htmlFor="Email" className="">
+          <label htmlFor="Email">
             Email:
           </label>
           <input
