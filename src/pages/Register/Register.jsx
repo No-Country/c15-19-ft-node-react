@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import SigninForm1 from "./SigninForm1.jsx";
-import SigninForm2 from "./SigninForm2.jsx";
-import SigninForm3 from "./SigninForm3.jsx";
-import MyContextProvider from "../../context/useContext.jsx";
-import "./Signin.css";
+import RegisterForm1 from "./RegisterForm1.jsx";
+import RegisterForm2 from "./RegisterForm2.jsx";
+import RegisterForm3 from "./RegisterForm3.jsx";
+import { registerUser } from "../../utils/apiServiceRegister.js";
+
+import "./Register.css";
 
 export default function Signin() {
-  const { state, updateField, resetForm } = MyContextProvider();
   const [currentForm, setCurrentForm] = useState(1);
   const [progressBar, setProgressBar] = useState({
     step1: false,
@@ -14,38 +14,25 @@ export default function Signin() {
     step3: false,
   });
 
+  const [title, setTitle] = useState("Crear cuenta");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    lastname: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    dateBirth: "",
+    acceptTerms: false,
+  });
+
   useEffect(() => {
-    // Actualizar el estado de la barra de progreso cuando cambie el formulario actual
     updateProgressBar();
   }, [currentForm]);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-
-    if (type === "checkbox") {
-      updateField(name, checked);
-    } else {
-      updateField(name, value);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!state.agreeToTerms) {
-      console.log("Debes aceptar los términos y condiciones");
-      return;
-    }
-
-    console.log("Datos enviados:", state);
-
-    resetForm();
-
-    setCurrentForm(currentForm + 1);
-  };
-
   const updateProgressBar = () => {
-    // Actualizar el estado de la barra de progreso según el formulario actual
     setProgressBar({
       step1: currentForm >= 1,
       step2: currentForm >= 2,
@@ -53,11 +40,21 @@ export default function Signin() {
     });
   };
 
+  const handleSubmitBackend = async (data) => {
+    const dataToBack = {
+      name: data.name,
+      lastname: data.lastname,
+      email: data.email,
+      password: data.password,
+      username: data.username,
+    };
+    const response = await registerUser(dataToBack);
+    return response;
+  };
+
   return (
     <section className=" flex flex-col justify-center items-center w-[100vw] h-[90vh] p-5">
-      <h1 className="text-4xl font-bold mt-[2rem] dark:text-white">
-        Crear cuenta
-      </h1>
+      <h1 className="text-4xl font-bold mt-[2rem] dark:text-white">{title}</h1>
       <ul className="flex flex-row items-center mt-[2rem]">
         <li
           className={`li bg-Green border-Green ${
@@ -95,30 +92,24 @@ export default function Signin() {
           <p className="text-TitleGreen">{progressBar.step3 ? "✔" : "3"}</p>
         </li>
       </ul>
+
       {currentForm === 1 && (
-        <SigninForm1
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          state={state}
+        <RegisterForm1
+          formData={formData}
+          setFormData={setFormData}
           setCurrentForm={setCurrentForm}
         />
       )}
       {currentForm === 2 && (
-        <SigninForm2
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          state={state}
+        <RegisterForm2
+          setTitle={setTitle}
+          formData={formData}
+          setFormData={setFormData}
           setCurrentForm={setCurrentForm}
+          handleSubmitBackend={handleSubmitBackend}
         />
       )}
-      {currentForm === 3 && (
-        <SigninForm3
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          state={state}
-          setCurrentForm={setCurrentForm}
-        />
-      )}
+      {currentForm === 3 && <RegisterForm3 />}
     </section>
   );
 }

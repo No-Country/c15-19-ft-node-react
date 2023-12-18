@@ -39,8 +39,8 @@ class CrearPost extends Component {
 
   render() {
     return (
-      <div className="container mx-auto mt-8">
-        <div className="grid grid-cols-3 items-center pb-8 w-full">
+      <div className="container mx-auto mt-8 px-8">
+        <div className="grid grid-cols-3 items-center pb-8">
           <div className="col-span-1 text-left">
             <a href="/home" className="text-black hover:underline">
               <button className="text-sm"><FaTimes size="20"/></button>
