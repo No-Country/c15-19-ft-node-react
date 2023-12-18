@@ -13,11 +13,11 @@ export const registerUser = async (userData) => {
 
     if (response.ok) {
       const responseData = await response.json();
-      return responseData;
+      return { data: responseData, status: response.status };
     } else {
       const errorData = await response.json();
       console.log(errorData);
-      throw new Error(errorData.message || "Error en la solicitud");
+      return { error: errorData.message, status: response.status };
     }
   } catch (error) {
     console.log(error);
