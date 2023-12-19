@@ -1,11 +1,42 @@
+import { Link, useNavigate } from 'react-router-dom'
 import "./login.css";
-export default function Login() {
+import { useState } from 'react'
+import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+
+const Login = () => {
+
+  const[email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const {setAuth} = useAuth()
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+
+    try {
+      const {data} = await axios.post('https://challenge-me-backend-uu82.onrender.com/auth/login', {email, password})
+      
+      localStorage.setItem('token', data.jsontoken)
+      setAuth(data)
+      console.log(data)
+      navigate('/home')
+
+    } catch (error) {
+      console.log(error)
+      console.log(error.response)
+    }
+  }
+
   return (
     <section className="flex flex-col justify-center items-center h-[80vh]">
       <div>
         <form
           action="login"
           className="w-[100vw]: px-4 h-screen flex flex-col justify-center  md:w-[100%] text-base md:text-[20px]   "
+          onSubmit={handleSubmit}
         >
           <label htmlFor="Email">
             Email:
@@ -15,6 +46,8 @@ export default function Login() {
             placeholder="example@gmail.com"
             required="@gmail.com"
             className="inputRegistreUser md:min-w[20rem]	 "
+            value={email}
+            onChange={ e=> setEmail(e.target.value)}
           />
 
           <label htmlFor="Password">Password: </label>
@@ -24,6 +57,8 @@ export default function Login() {
             placeholder="Password"
             required=""
             className=" inputRegistreUser "
+            value={password}
+            onChange={ e=> setPassword(e.target.value)}
           />
 
           <input
@@ -48,3 +83,5 @@ export default function Login() {
     </section>
   );
 }
+
+export default Login
