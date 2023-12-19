@@ -12,7 +12,7 @@ function NavBarLower() {
   if (withouSidebarRoutes.some((item) => pathname.includes(item))) return null;
 
   return (
-    <div className="fixed bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">
+    <div className="fixed z-50 bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">
       <a href="/home">
         <NavBarInfIcon icon={<FaHouse size="20" />} text="Home" />
       </a>

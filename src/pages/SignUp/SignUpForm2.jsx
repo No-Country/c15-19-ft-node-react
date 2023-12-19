@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { registerUser } from "../../utils/apiServiceRegister";
-import "./Signin.css";
+import "./SignUp.css";
 import useMyContext from "../../context/useContext"; // Reemplaza con la ruta correcta de tu archivo de contexto
 
 export default function SigninForm2({ handleChange, setCurrentForm, state }) {

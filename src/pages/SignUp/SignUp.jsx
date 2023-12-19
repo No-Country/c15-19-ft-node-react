@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import SigninForm1 from "./SigninForm1.jsx";
-import SigninForm2 from "./SigninForm2.jsx";
-import SigninForm3 from "./SigninForm3.jsx";
+import SigninForm1 from "./SignUpForm1.jsx";
+import SigninForm2 from "./SignUpForm2.jsx";
+import SigninForm3 from "./SignUpForm3.jsx";
 import MyContextProvider from "../../context/useContext.jsx";
-import "./Signin.css";
+import "./SignUp.css";
 
 export default function Signin() {
   const { state, updateField, resetForm } = MyContextProvider();
