@@ -15,7 +15,7 @@ function NavBarLower() {
   return (
 
     <div className="fixed z-50 bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">
-      <a href="/home">
+      <Link href="/home">
 
         <NavBarInfIcon icon={<FaHouse size="20" />} text="Home" />
       </Link>
