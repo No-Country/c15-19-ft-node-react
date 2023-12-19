@@ -8,8 +8,16 @@
   font-weight: 600;
 }
 
-.card-user__subtitle .card-user__image-container {
+.card-user__subtitle {
+  height: 100px;
+  overflow: auto;
+}
+
+.card-user__image-container {
   margin: 14px auto;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
 }
 
 .card-user__social {
@@ -55,7 +63,6 @@
   .card-user__subtitle {
     font-size: 1.8rem;
     font-weight: 300;
-    overflow-wrap: break-word;
   }
 
   .card-user__image-container {

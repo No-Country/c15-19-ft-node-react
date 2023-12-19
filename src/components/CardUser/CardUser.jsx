@@ -9,12 +9,24 @@ import {
 } from "@ant-design/icons";
 import { Card, Space, Avatar, Image } from "antd";
 import "./CardUser.css";
+import { useNavigate } from "react-router-dom";
 
 function CardUser(data) {
-  const { avatar, title, media, description } = data;
+  const { avatar, title, media, description, user } = data;
+
+  const navigate = useNavigate();
+
+  const [menu, setMenu] = useState(false);
 
   const [likes, setLike] = useState(false);
   const [showComments, setShowComments] = useState(false);
+  const [showShare, setShowShare] = useState(false);
+  const [profile, setProfile] = useState(false);
+
+  const handleShowMenu = () => {
+    setMenu(!menu);
+    console.log("soy otro botoncito que no hace nada", !menu);
+  };
 
   const handleCardLike = () => {
     setLike(!likes);
@@ -22,14 +34,26 @@ function CardUser(data) {
 
   const handleShowComments = () => {
     setShowComments(!showComments);
-    console.log("hola estoy pulsando el boton", !showComments);
+    navigate("/home/comments");
+  };
+
+  const handleShowShare = () => {
+    setShowShare(!showShare);
+    console.log("pulsame y te comparto algo", !showShare);
+  };
+
+  const handleProfile = () => {
+    setProfile(!profile);
+    navigate(`/profile/${user}`);
   };
 
   const imagePlaceholder =
     "https://www.cronobierzo.es/wp-content/uploads/2020/01/no-image.jpg";
 
+  const medias = media[0]?.url;
+
   return (
-    <div className="flex flex-col m-4 card-user__container">
+    <div className="flex flex-col m-4 z-0 relative card-user__container">
       <Space direction="vertical" size={16}>
         <Card
           bordered={false}
@@ -45,8 +69,12 @@ function CardUser(data) {
                 src={avatar}
                 icon={<UserOutlined className="card-user__avatar-icon " />}
                 style={{ backgroundColor: "#87d068" }}
+                onClick={handleProfile}
               />
-              <MoreOutlined className="card-user__icon-lined" />
+              <MoreOutlined
+                className="card-user__icon-lined"
+                onClick={handleShowMenu}
+              />
             </div>
 
             <div className="items-start card-user__description">
@@ -57,7 +85,7 @@ function CardUser(data) {
             <div className="card-user__image-container">
               <Image
                 alt={title}
-                src={media[0]?.url || imagePlaceholder}
+                src={medias || imagePlaceholder}
                 className="object-cover	w-full h-full"
               />
             </div>
@@ -74,7 +102,10 @@ function CardUser(data) {
               <button type="button" onClick={handleShowComments}>
                 <CommentOutlined className="card-user__icon card-user__icon_margin" />
               </button>
-              <ShareAltOutlined className="card-user__icon card-user__icon_margin" />
+
+              <button type="button" onClick={handleShowShare}>
+                <ShareAltOutlined className="card-user__icon card-user__icon_margin" />
+              </button>
             </div>
           </>
         </Card>
