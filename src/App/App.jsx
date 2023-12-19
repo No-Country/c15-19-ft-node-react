@@ -9,9 +9,10 @@ import Home from "../pages/Home/Home";
 import Categories from "../pages/Categories/Categories";
 import Category from "../pages/Categories/Category";
 import Profile from "../pages/Profile/Profile";
+import EditProfile from "../pages/EditProfile/EditProfile";
+import Privacy from "../pages/Privacy/Privacy";
 import Achievements from "../pages/Achievements/Achievements";
 import Sync from "../pages/Sync/Sync";
-import Privacy from "../pages/Privacy/Privacy";
 import Security from "../pages/Security/Security"
 import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
@@ -20,8 +21,7 @@ import Wrapper from "../pages/Wrapper/Wrapper";
 
 
 export default function App() {
-  return (
-    
+  return (   
       <Router>
 
           <ContextProvider>
@@ -38,12 +38,15 @@ export default function App() {
               <Route path="/profile/security" element={<Security/>}/>
 
               <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/profile/:id/privacy" element={<Privacy />} />
+              <Route path="/profile/:id/editprofile" element={<EditProfile />} />
 
               <Route path="/categories/:name" element={<Category />} />
 
               <Route path="/createpost" element={<CrearPost />} />
             
               <Route path="*" element={<Error />} />
+                
             </Routes>
             </AuthProvider>
           </ContextProvider>
