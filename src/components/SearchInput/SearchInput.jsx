@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const SearchInput = ({ onSearch, onFilterChange }) => {
+const SearchInput = ({ onSearch, onFilterChange, showFilterButton }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("all"); // Puede ser 'all', 'created', o 'name'
+  const [filterType, setFilterType] = useState("all");
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -17,18 +17,17 @@ const SearchInput = ({ onSearch, onFilterChange }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Puedes realizar alguna acción con el valor de búsqueda (searchTerm) si es necesario
     console.log("Búsqueda enviada:", searchTerm);
   };
 
   return (
-    <article className="flex flex-row lg:justify-between items-center w-[85vw]">
+    <article className="flex flex-row lg:justify-between items-center w-[86vw]">
       <form
-        className="ml-[1rem] flex items-center justify-center bg-gray-50 h-[3rem] px-[1rem] border-2 rounded-full shadow-xl"
+        className="mx-1 min-w-[19rem] max-w-[40vw] w-[30vw] flex items-center justify-center bg-gray-50 h-[3rem] px-[1rem] border-2 rounded-full shadow-xl"
         onSubmit={handleSubmit}
       >
         <input
-          className="min-w-[12rem] w-18rem max-w-[30rem] py-1 px-2 mr-3 rounded-xl placeholder:font-light outline-none"
+          className="min-w-[15rem] w-[30vw] max-w-[40vw] py-1 px-2 mr-3 rounded-xl placeholder:font-light outline-none"
           type="text"
           id="search"
           value={searchTerm}
@@ -50,23 +49,26 @@ const SearchInput = ({ onSearch, onFilterChange }) => {
           </svg>
         </button>
       </form>
-      <button className="hidden lg:block" action="filtered">
-        <label className="dark:text-white text-lg mx-3" htmlFor="filter">
-          Filtrar Categorias
-        </label>
-        <select
-          className="shadow-xl dark:placeholder:text-gray-500 mr-[1rem] px-4 outline-none rounded-full h-[2rem]"
-          id="filter"
-          name="filter"
-          onChange={handleFilterChange}
-        >
-          <option className="mx-4" value="all">
-            Todas las Categorías
-          </option>
-          <option value="created">Categorías Creadas</option>
-          <option value="name">Filtrar por Nombre</option>
-        </select>
-      </button>
+      {showFilterButton && (
+        <button className="hidden lg:block" action="filtered">
+          <label className="dark:text-white text-lg mx-3" htmlFor="filter">
+            Filtrar Categorias
+          </label>
+          <select
+            className="shadow-xl w-[14rem] dark:placeholder:text-gray-500 mr-[1rem] px-4 outline-none rounded-full h-[2rem]"
+            id="filter"
+            name="filter"
+            onChange={handleFilterChange}
+          >
+            <option className="mx-4" value="all">
+              Todas las categorías
+            </option>
+            <option value="recent">Recientes</option>
+            <option value="most-wanted">Más buscadas</option>
+            <option value="name">Por nombre</option>
+          </select>
+        </button>
+      )}
     </article>
   );
 };

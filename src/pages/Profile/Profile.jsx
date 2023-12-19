@@ -4,6 +4,7 @@ import axios from "axios";
 import UserPosts from "../UserPosts/UserPosts";
 import Loading from "../Loading/Loading";
 import MyProfile from "./MyProfile";
+import useAuth from "../../hooks/useAuth"
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -12,7 +13,7 @@ const Profile = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("https://challenge-me-backend-uu82.onrender.com/users" + `/${id}`)
+      .get(`http://localhost:3001/users/${id}`)
       .then((resp) => {
         setUser(resp.data);
         setLoading(false);
@@ -29,7 +30,7 @@ const Profile = () => {
       ) : (
         <div>
           <MyProfile user={user} />
-          <UserPosts user={user} />
+          {/* <UserPosts user={user} /> */}
         </div>
       )}
     </>

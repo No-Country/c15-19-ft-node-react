@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Loading from "../Loading/Loading";
 import profilePic from "../../images/userimg.png";
+import useAuth from "../../hooks/useAuth";
+
 const MyProfile = (props) => {
   const [loading, setLoading] = useState(false);
   const user = props.user;
-
+foll
   return (
     <>
       {loading ? (
@@ -18,6 +20,7 @@ const MyProfile = (props) => {
               className="rounded-full h-22 sm:h-40 w-20 sm:w-40  mr-2 lg:ml-10 lg:w-60 lg:h-60 md:ml-10 md:mt-3"
             />
             <div className=" flex flex-row gap-10 pl-5 pt-5 lg:gap-[4vw] lg:mt-3 md:pt-10 md:gap-20">
+              <p></p>
               <div className="hidden sm:flex flex-col lg:text-xl">
                 <p className="text-center">1234</p>
                 <p className="">Posts</p>
