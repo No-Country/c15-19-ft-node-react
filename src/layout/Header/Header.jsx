@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import ButtonToggle from "../../components/ButtonToggle/ButtonToggle";
+import { Link } from "react-router-dom";
+import ButtonToggle from "../../components/ButtonToggle/ButtonToggle"
 import "./Header.css";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -51,17 +56,35 @@ const Header = () => {
       {menuOpen && (
         <div className="z-50 w-[100vw] h-[100vh] dark:bg-[#27272a] dark:text-white absolute top-0 right-0 bg-white p-4 mt-10 border rounded shadow-md md:text-lg">
           <ul>
-            <li className="liLogin flex items-center" id="darkMode">
-              <p className="text-black dark:text-white">Modo Oscuro</p>
-              <ButtonToggle />
+
+            <li className="liLogin flex items-center" id="darkMode"><p className="text-black dark:text-white">Modo Oscuro</p><ButtonToggle /></li>
+            <li className="liLogin flex items-center" id="darkMode"><p className="text-black dark:text-white">Notificaciones</p></li>
+            <li className="liMenu liLogin">
+              <p className="text-black dark:text-white">
+                <Link to="/profile/achievements" onClick={closeMenu}>
+                  Logros
+                </Link>
+              </p>
             </li>
-            <li className="liMenu liLogin">Insignias</li>
-            <li className="liMenu liLogin">Sincronización</li>
-            <li className="liMenu liLogin">Privacidad</li>
-            <li className="liMenu liLogin">Seguridad</li>
-            <li className="liLogin" id="closeSession">
+            <li className="liMenu liLogin dark:text-white"><p className="text-black dark:text-white"><Link to="/profile/privacy" onClick={closeMenu}>Privacidad
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin dark:text-white"><p className="text-black dark:text-white"><Link to="/profile/security" onClick={closeMenu}>Seguridad
+            </Link>
+            </p></li> 
+            <li className="liMenu liLogin "><p className="text-black dark:text-white"><Link to="/profile/sync" onClick={closeMenu}>Sincronización
+            </Link>
+            </p>
+            </li>
+            <li className="liMenu liLogin "><p className="text-black dark:text-white"><Link to="/profile/sync" onClick={closeMenu}>Borrar cuenta
+            </Link>
+            </p>
+            </li>
+            <li className="liLogin dark:text-white" id="closeSession">
               Cerrar sesión
             </li>
+           
           </ul>
         </div>
       )}
