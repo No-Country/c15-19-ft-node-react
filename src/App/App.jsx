@@ -19,6 +19,7 @@ import CrearPost from "../pages/CreatePost/CreatePost";
 import Error from "../pages/Error/Error";
 import Wrapper from "../pages/Wrapper/Wrapper";
 import Comment from "../pages/Comments/Comment";
+import VerifyAccount from "../pages/VerifyAccount/VerifyAccout";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <ContextProvider>
         <AuthProvider>
           <Routes>
+            <Route path="/verify-account" element={<VerifyAccount />}></Route>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
