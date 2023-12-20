@@ -20,6 +20,7 @@ import Wrapper from "../pages/Wrapper/Wrapper";
 import AuthLayout from "../pages/Wrapper/AuthLayout";
 import Comments from "../pages/Comments/Comments";
 import VerifyAccount from "../pages/VerifyAccount/VerifyAccout";
+import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
       <ContextProvider>
         <AuthProvider>
           <Routes>
+            <Route path="/landing-page" element={<LandingPage />} />
             <Route path="/" element={<AuthLayout />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
