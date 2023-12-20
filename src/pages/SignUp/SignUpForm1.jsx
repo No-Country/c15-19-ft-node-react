@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function SigninForm1({ handleChange, state, setCurrentForm }) {
   const [error, setError] = useState({});
@@ -62,6 +63,7 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
 
   return (
     <section className="flex flex-col justify-center items-center w-[100vw] h-[70vh] px-[1rem]">
+
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <div className="label--container__div">
           <label htmlFor="username" className="md:text-xl dark:text-white">
@@ -168,6 +170,7 @@ export default function SigninForm1({ handleChange, state, setCurrentForm }) {
           Siguiente
         </button>
       </form>
+
     </section>
   );
 }

@@ -1,12 +1,22 @@
 import { useState } from "react";
 import UserImg from "../../images/userimg.png";
 import "../SignUp/SignUp.css";
+import useAuth from "../../hooks/useAuth";
+
+
+
 export default function EditProfile() {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
     password: "",
   });
+
+  const {auth, loading} = useAuth()
+
+  console.log('Auth:', auth)
+
+  console.log(auth._id)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +29,7 @@ export default function EditProfile() {
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
 
-    const userId = "ID_DEL_USUARIO"; // Reemplaza con el ID del usuario específico
+    const userId = auth_id; // Reemplaza con el ID del usuario específico
     const apiUrl = `https://challenge-me-backend-uu82.onrender.com/users/${userId}`;
 
     try {

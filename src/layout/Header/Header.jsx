@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonToggle from "../../components/ButtonToggle/ButtonToggle"
 import "./Header.css";
+import useAuth  from "../../hooks/useAuth";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const {closeSesionAuth} = useAuth()
+
+  const handleCloseSesion = () => {
+    closeSesionAuth()
+    localStorage.removeItem('token')
+}
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -81,7 +88,7 @@ const Header = () => {
             </Link>
             </p>
             </li>
-            <li className="liLogin dark:text-white" id="closeSession">
+            <li onClick={handleCloseSesion} className="liLogin dark:text-white" id="closeSession">
               Cerrar sesión
             </li>
            

@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const {data} = await axios.post('https://challenge-me-backend-uu82.onrender.com/auth/login', {email, password})
       
-      localStorage.setItem('token', data.jsontoken)
+      localStorage.setItem('jsontoken', data.jsontoken)
       setAuth(data)
       console.log(data)
       navigate('/home')
@@ -78,7 +78,18 @@ const Login = () => {
             </picture>
             Login with Google
           </button>
+          <nav className="lg:flex lg:justify-between">
+              <Link
+                className='block text-center my-5 text-slate-500 uppercase text-sm'
+                to="register"
+              >
+                ¿No tienes una cuenta? Registrate
+              </Link>
+
+        </nav>
         </form>
+
+
       </div>
     </section>
   );
