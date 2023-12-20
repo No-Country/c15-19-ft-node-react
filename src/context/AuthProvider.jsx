@@ -15,6 +15,8 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const authenticateUser = async () => {
             const token = localStorage.getItem('jsontoken')
+
+            console.log('Token:', token);
             
             if(!token) {
                 setLoading(false)
@@ -24,7 +26,7 @@ const AuthProvider = ({children}) => {
             const config = {
                 headers : {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${jsontoken}`
+                    Authorization: `Bearer ${token}`
                 }
             }
 

@@ -2,6 +2,7 @@ import CardUser from "../../components/CardUser/CardUser";
 import React, { useEffect, useState } from "react";
 import Api from "../../utils/api";
 import { Outlet } from "react-router-dom";
+
 function Home() {
   const [cards, setCards] = useState([]);
 
