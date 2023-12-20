@@ -1,0 +1,26 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 7px;
+    grid-row-gap: 11px;
+    justify-items: center;
+    align-items: center;
+    margin: 5px auto ;
+    width:85vw;
+}
+
+@media (max-width: 640px) {
+   .parent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width:auto;
+    
+   }
+}
+
+@media (max-width: 768px) {
+   .parent{
+    width: 90vw;
+   }
+}

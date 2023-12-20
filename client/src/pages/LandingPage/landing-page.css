@@ -1,0 +1,41 @@
+.landing-page {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin: 70px auto;
+  position: relative;
+}
+
+.landing-page__container {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+}
+
+.landing-page__title {
+  margin: 100px auto 30px;
+  font-size: 45px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.landing-page__paragraph {
+  text-align: justify;
+}
+
+.landing-page__button {
+  margin: 10% auto;
+}
+
+.landing-page__logo {
+  position: absolute;
+  width: 700px;
+  height: 690px;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+}
