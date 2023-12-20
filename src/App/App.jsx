@@ -38,7 +38,7 @@ export default function App() {
                  <Route  path="/" element={<Wrapper/>}>
                   <Route path="home" element={<Home />} />
                   <Route path="/categories" element={<Categories />} />
-                  <Route path="/profile" element={<Profile />} />
+                  {/* <Route path="/profile" element={<Profile />} /> */}
                   <Route path="/profile/achievements" element={<Achievements/>} />
                   <Route path="/profile/sync" element={<Sync/>}/>
                   <Route path="/profile/privacy" element={<Privacy/>}/>
