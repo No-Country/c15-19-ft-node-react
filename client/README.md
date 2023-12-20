@@ -1,4 +1,4 @@
-# ChallengeMe app
+# ChallengeMe - app
 
 Bienvenido a **ChallengeMe**, la aplicación que transforma la diversión en una experiencia compartida y emocionante. En ChallengeMe, no solo creas y compartes desafíos, sino que también construyes conexiones significativas a través de tribus vibrantes.
 
