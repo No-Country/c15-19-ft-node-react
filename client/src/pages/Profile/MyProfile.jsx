@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Loading from "../Loading/Loading";
 import profilePic from "../../images/userimg.png";
-import useAuth from "../../hooks/useAuth";
 
 const MyProfile = (props) => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +19,6 @@ const MyProfile = (props) => {
               className="rounded-full h-22 sm:h-40 w-20 sm:w-40  mr-2 lg:ml-10 lg:w-60 lg:h-60 md:ml-10 md:mt-3"
             />
             <div className=" flex flex-row gap-10 pl-5 pt-5 lg:gap-[4vw] lg:mt-3 md:pt-10 md:gap-20">
-              <p></p>
               <div className="hidden sm:flex flex-col lg:text-xl">
                 <p className="text-center">1234</p>
                 <p className="">Posts</p>
@@ -38,14 +36,17 @@ const MyProfile = (props) => {
           <div className="lg:flex flex-col lg:absolute lg:mt-[-8rem] lg:ml-[23.3rem]">
             <div className="flex flex-row justify-between lg:justify-between px-8 items-center h-10 lg:mt-[-1rem]">
               <p className="text-2xl truncate mt-[0px]">{user.username}</p>
-              <button className="w-[7rem] ml-[36vw] lg:ml-[36vw] lg:flex flex-row justify-evenly items-center lg:justify-center lg:absolute lg:mt-[-8.5rem] h-8 lg:w-40  lg:border-Green lg:p-7 text-xl rounded-lg bg-Green text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85]   ">
+              {/* <label className="w-[7rem] ml-[36vw] lg:ml-[36vw] lg:flex flex-row justify-evenly items-center lg:justify-center lg:absolute lg:mt-[-8.5rem] h-8 lg:w-40  lg:border-Green lg:p-7 text-xl rounded-lg bg-Green text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85]   ">
                 Follow
-                <select className="pl-0 bg-Green">
-                  <option></option>
-                  <option>1</option>
-                  <option>1</option>
-                </select>
-              </button>
+              </label>
+              <select className="pl-0 bg-Green">
+                <option value=""></option>
+                <option value="bloquear">Bloquear</option>
+                <option value="compartir perfil">Compartir perfil</option>
+              </select> */}
+              <label className="w-[10rem] md:w-[9rem] ml-[36vw] lg:ml-[36vw] flex flex-row items-center justify-center lg:absolute lg:mt-[-8.5rem] h-8 lg:w-40  lg:border-Green  lg:p-7 text-l rounded-lg bg-Green text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85]   ">
+                Edit profile
+              </label>
             </div>
             <p className="text-md font-semibold p-6 lg:my-0 lg:w-[60vw] lg:ml-[0.5vw]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
