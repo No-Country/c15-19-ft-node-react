@@ -7,7 +7,7 @@ const onFinish = (values) => {
   console.log("Received values of form:", values);
 };
 
-function Comment() {
+function Comments() {
   const data = [
     {
       title: "Ant Design Title 1",
@@ -97,4 +97,4 @@ function Comment() {
   );
 }
 
-export default Comment;
+export default Comments;
