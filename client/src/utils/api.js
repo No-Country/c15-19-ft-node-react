@@ -18,7 +18,7 @@ export default class Api {
   async getCardsChallenges() {
     try {
       const res = await this._useFetch(
-        "https://challenge-me-backend-uu82.onrender.com/challenges",
+        "https://challengeme-uy0s.onrender.com/challenges",
         "GET"
       );
 
