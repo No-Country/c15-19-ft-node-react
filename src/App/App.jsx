@@ -12,29 +12,28 @@ import EditProfile from "../pages/EditProfile/EditProfile";
 import Privacy from "../pages/Privacy/Privacy";
 import Achievements from "../pages/Achievements/Achievements";
 import Sync from "../pages/Sync/Sync";
-import Security from "../pages/Security/Security"
+import Security from "../pages/Security/Security";
 import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
 import Error from "../pages/Error/Error";
 import Wrapper from "../pages/Wrapper/Wrapper";
 import AuthLayout from "../pages/Wrapper/AuthLayout";
-
+import Comment from "../pages/Comments/Comment";
+import VerifyAccount from "../pages/VerifyAccount/VerifyAccout";
 
 export default function App() {
-  return (   
-      <Router>
+  return (
+    <Router>
+    
 
           <ContextProvider>
           <AuthProvider>
             <Routes>
-                  
-                  
-
                   <Route path='/' element={<AuthLayout/>}>
                         <Route index element={<Login />} />
                         <Route path="register" element={<Register />} />
-                    </Route>
-           
+                        <Route path="/verify-account" element={<VerifyAccount />}/>
+                  </Route>
                  <Route  path="/" element={<Wrapper/>}>
                   <Route path="home" element={<Home />} />
                   <Route path="/categories" element={<Categories />} />
@@ -58,6 +57,5 @@ export default function App() {
             </AuthProvider>
           </ContextProvider>
       </Router>
-    
   );
 }
