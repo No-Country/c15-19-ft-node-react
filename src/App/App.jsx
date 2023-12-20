@@ -19,6 +19,7 @@ import CrearPost from "../pages/CreatePost/CreatePost";
 import Error from "../pages/Error/Error";
 import Wrapper from "../pages/Wrapper/Wrapper";
 import Comment from "../pages/Comments/Comment";
+import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <ContextProvider>
         <AuthProvider>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
