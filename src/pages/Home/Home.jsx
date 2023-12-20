@@ -2,6 +2,8 @@ import CardUser from "../../components/CardUser/CardUser";
 import React, { useEffect, useState } from "react";
 import Api from "../../utils/api";
 import { Outlet } from "react-router-dom";
+import Header from "../../layout/Header/Header";
+
 function Home() {
   const [cards, setCards] = useState([]);
 
@@ -21,6 +23,7 @@ function Home() {
 
   return (
     <div className="relative z-0">
+      {/* <Header/> */}
       <Outlet />
       {cards.map((element) => {
         return <CardUser key={element._id} {...element} />;

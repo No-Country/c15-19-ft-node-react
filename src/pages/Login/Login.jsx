@@ -78,7 +78,18 @@ const Login = () => {
             </picture>
             Login with Google
           </button>
+          <nav className="lg:flex lg:justify-between">
+              <Link
+                className='block text-center my-5 text-slate-500 uppercase text-sm'
+                to="register"
+              >
+                ¿No tienes una cuenta? Registrate
+              </Link>
+
+        </nav>
         </form>
+
+
       </div>
     </section>
   );
