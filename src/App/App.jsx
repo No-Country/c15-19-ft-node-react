@@ -11,9 +11,10 @@ import Profile from "../pages/Profile/Profile";
 import Achievements from "../pages/Achievements/Achievements";
 import Sync from "../pages/Sync/Sync";
 import Privacy from "../pages/Privacy/Privacy";
-import Security from "../pages/Security/Security"
+import Security from "../pages/Security/Security";
 import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
+import VerifyAccount from "../pages/VerifyAccount/VerifyAccout";
 
 export default function App() {
   return (
@@ -21,15 +22,16 @@ export default function App() {
       <ContextProvider>
         <Header />
         <Routes>
+          <Route path="/verify-account/:token" element={<VerifyAccount />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/profile/" element={<Profile />} />
-          <Route path="/profile/achievements" element={<Achievements/>} />
-          <Route path="/profile/sync" element={<Sync/>}/>
-          <Route path="/profile/privacy" element={<Privacy/>}/>
-          <Route path="/profile/security" element={<Security/>}/>
+          <Route path="/profile/achievements" element={<Achievements />} />
+          <Route path="/profile/sync" element={<Sync />} />
+          <Route path="/profile/privacy" element={<Privacy />} />
+          <Route path="/profile/security" element={<Security />} />
 
           <Route path="/profile/:id" element={<Profile />} />
 
