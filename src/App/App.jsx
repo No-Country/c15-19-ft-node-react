@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "../context/AuthProvider";
-import Header from "../layout/Header/Header";
-import NavBarLower from "../components/NavBarLower/NavBarLower";
+
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Home from "../pages/Home/Home";
@@ -18,7 +17,9 @@ import { ContextProvider } from "../context/useContext";
 import CrearPost from "../pages/CreatePost/CreatePost";
 import Error from "../pages/Error/Error";
 import Wrapper from "../pages/Wrapper/Wrapper";
-import Comment from "../pages/Comments/Comment";
+import AuthLayout from "../pages/Wrapper/AuthLayout";
+import Comments from "../pages/Comments/Comments";
+import VerifyAccount from "../pages/VerifyAccount/VerifyAccout";
 import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
@@ -27,27 +28,35 @@ export default function App() {
       <ContextProvider>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/home/comments" element={<Comment />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/profile/achievements" element={<Achievements />} />
-            <Route path="/profile/sync" element={<Sync />} />
-            <Route path="/profile/privacy" element={<Privacy />} />
-            <Route path="/profile/security" element={<Security />} />
+            <Route path="/landing-page" element={<LandingPage />} />
+            <Route path="/" element={<AuthLayout />}>
+              <Route index element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="/verify-account" element={<VerifyAccount />} />
+            </Route>
+            <Route path="/" element={<Wrapper />}>
+              <Route path="home" element={<Home />} />
+              <Route path="home/comments" element={<Comments />} />
+              <Route path="/categories" element={<Categories />} />
+              {/* <Route path="/profile" element={<Profile />} /> */}
+              <Route path="/profile/achievements" element={<Achievements />} />
+              <Route path="/profile/sync" element={<Sync />} />
+              <Route path="/profile/privacy" element={<Privacy />} />
+              <Route path="/profile/security" element={<Security />} />
 
-            <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/profile/:id/privacy" element={<Privacy />} />
-            <Route path="/profile/:id/editprofile" element={<EditProfile />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/profile/:id/privacy" element={<Privacy />} />
+              <Route
+                path="/profile/:id/editprofile"
+                element={<EditProfile />}
+              />
 
-            <Route path="/categories/:name" element={<Category />} />
+              <Route path="/categories/:name" element={<Category />} />
 
-            <Route path="/createpost" element={<CrearPost />} />
+              <Route path="/createpost" element={<CrearPost />} />
 
-            <Route path="*" element={<Error />} />
+              <Route path="*" element={<Error />} />
+            </Route>
           </Routes>
         </AuthProvider>
       </ContextProvider>

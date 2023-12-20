@@ -1,5 +1,9 @@
+import { useEffect } from "react";
+
 export default function Security() {
-    return <h1>
-        Holis soy seguridad        
-    </h1>
+  useEffect(() => {
+    console.log("use Effect");
+  }, []);
+
+  return <h1>Holis soy seguridad</h1>;
 }

@@ -4,11 +4,18 @@ import { FaSearch } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const withouSidebarRoutes = ["/createpost", "/signin", "/login"];
 
 function NavBarLower() {
   const { pathname } = useLocation();
+  const { auth, loading } = useAuth();
+
+  console.log('Auth:', auth)
+
+  console.log(auth._id)
+
 
   if (withouSidebarRoutes.some((item) => pathname.includes(item))) return null;
 
@@ -25,7 +32,7 @@ function NavBarLower() {
       <Link to="/createpost">
         <NavBarInfNew icon={<FaPlus size="30" />} text="New" />
       </Link>
-      <Link to="/">
+      <Link to="/">-
         <NavBarInfIcon icon={<MdMessage size="20" />} text="Messages" />
       </Link>
       <Link to="/profile/:id">

@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 const MyProfile = (props) => {
   const [loading, setLoading] = useState(false);
   const user = props.user;
-foll
+
   return (
     <>
       {loading ? (
