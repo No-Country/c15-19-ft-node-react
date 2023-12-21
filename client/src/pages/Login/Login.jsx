@@ -9,7 +9,10 @@ const Login = () => {
   const[email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const {setAuth} = useAuth()
+  const {auth, setAuth, loading} = useAuth()
+
+  console.log(auth)
+  console.log(loading)
 
   const navigate = useNavigate()
 

@@ -25,15 +25,17 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 export default function App() {
   return (
     <Router>
-      <ContextProvider>
+      {/* <ContextProvider> */}
         <AuthProvider>
           <Routes>
             <Route path="/landing-page" element={<LandingPage />} />
+
             <Route path="/" element={<AuthLayout />}>
               <Route index element={<Login />} />
               <Route path="register" element={<Register />} />
-              <Route path="/verify-account" element={<VerifyAccount />} />
+              <Route path="verify-account/:id" element={<VerifyAccount />} />
             </Route>
+
             <Route path="/" element={<Wrapper />}>
               <Route path="home" element={<Home />} />
               <Route path="home/comments" element={<Comments />} />
@@ -59,7 +61,7 @@ export default function App() {
             </Route>
           </Routes>
         </AuthProvider>
-      </ContextProvider>
+      {/* </ContextProvider> */}
     </Router>
   );
 }

@@ -1,3 +1,5 @@
+// tomaslona888@gmail.com
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonToggle from "../../components/ButtonToggle/ButtonToggle"
@@ -10,7 +12,7 @@ const Header = () => {
 
   const handleCloseSesion = () => {
     closeSesionAuth()
-    localStorage.removeItem('token')
+    localStorage.removeItem('jsontoken')
 }
 
   const closeMenu = () => {

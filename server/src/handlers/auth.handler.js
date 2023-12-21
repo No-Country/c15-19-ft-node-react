@@ -14,6 +14,7 @@ const registerUserHandler = async (req, res) => {
         "Usuario registrado exitosamente, por favor revise su correo para verificar su cuenta",
     });
   } catch (error) {
+    console.log(error)
     res.status(400).json({ message: error.message });
   }
 };

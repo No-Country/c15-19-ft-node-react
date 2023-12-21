@@ -2,9 +2,11 @@ import CardUser from "../../components/CardUser/CardUser";
 import React, { useEffect, useState } from "react";
 import Api from "../../utils/api";
 import { Outlet } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 function Home() {
   const [cards, setCards] = useState([]);
+  const {auth, loading} = useAuth()
 
   const api = new Api();
 
@@ -22,10 +24,15 @@ function Home() {
 
   return (
     <div className="relative z-0">
-      <Outlet />
+      {/* <Outlet /> */}
+      {auth._id ? (
+        <>
       {cards.map((element) => {
         return <CardUser key={element._id} {...element} />;
       })}
+      </>
+      ) : ('Debes estar autenticado para acceder')
+      }
     </div>
   );
 }
