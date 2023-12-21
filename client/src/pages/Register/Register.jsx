@@ -53,7 +53,7 @@ export default function Signin() {
   };
 
   return (
-    <section className=" flex flex-col justify-center items-center w-[100vw] h-[90vh] p-5">
+    <section className=" flex flex-col justify-center items-center p-5">
       <h1 className="text-4xl font-bold mt-[2rem] dark:text-white">{title}</h1>
       <ul className="flex flex-row items-center mt-[2rem]">
         <li
