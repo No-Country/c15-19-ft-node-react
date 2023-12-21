@@ -1,7 +1,7 @@
 export const registerUser = async (userData) => {
   try {
     const response = await fetch(
-      "https://challenge-me-backend-uu82.onrender.com/auth/register",
+      "https://challengeme-uy0s.onrender.com/auth/register",
       {
         method: "POST",
         headers: {
