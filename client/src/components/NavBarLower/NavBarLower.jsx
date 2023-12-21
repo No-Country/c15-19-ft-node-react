@@ -12,18 +12,11 @@ function NavBarLower() {
   const { pathname } = useLocation();
   const { auth, loading } = useAuth();
 
-  console.log('Auth:', auth)
-
-  console.log(auth._id)
-
-
   if (withouSidebarRoutes.some((item) => pathname.includes(item))) return null;
 
   return (
-
     <div className="fixed z-50 bottom-0 h-16 w-screen m-0 flex flex-row items-center justify-around bg-BgGreen text-white shadow-lg">
       <Link href="/home">
-
         <NavBarInfIcon icon={<FaHouse size="20" />} text="Home" />
       </Link>
       <Link to="/categories">
@@ -32,10 +25,11 @@ function NavBarLower() {
       <Link to="/createpost">
         <NavBarInfNew icon={<FaPlus size="30" />} text="New" />
       </Link>
-      <Link to="/">-
+      <Link to="/">
+        -
         <NavBarInfIcon icon={<MdMessage size="20" />} text="Messages" />
       </Link>
-      <Link to="/profile/:id">
+      <Link to={`/profile/${auth._id}`}>
         <NavBarInfIcon icon={<IoPerson size="20" />} text="Profile" />
       </Link>
     </div>
