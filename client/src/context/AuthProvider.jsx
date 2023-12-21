@@ -35,10 +35,8 @@ const AuthProvider = ({children}) => {
                 setAuth(data);
                 navigate('/home');
               } catch (error) {
-                console.error("Error en la solicitud:", error);
-                if (error.response) {
-                  console.error("Respuesta del servidor:", error.response.data);
-                }
+                console.log(error)
+                console.log(token)
                 setAuth({});
               } finally {
                 setLoading(false);

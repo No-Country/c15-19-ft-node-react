@@ -9,7 +9,6 @@ function Wrapper(){
   const {auth, loading} = useAuth()
 
   console.log('Auth:', auth)
-
   console.log(auth._id)
 
   if(loading) return 'Cargando...'

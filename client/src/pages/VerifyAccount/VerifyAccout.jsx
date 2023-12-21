@@ -18,6 +18,7 @@ function VerifyAccount() {
         `https://challenge-me-backend-uu82.onrender.com/auth/verify-account/${token}`
       );
 
+
       console.log(resp);
       // Si el token es válido y la verificación es exitosa, podrías mostrar un mensaje de éxito o redirigir al usuario a otra página (por ejemplo, la página de inicio)
       setVerificationStatus("success");
