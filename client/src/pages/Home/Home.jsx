@@ -24,15 +24,12 @@ function Home() {
 
   return (
     <div className="relative z-0">
-      {/* <Outlet /> */}
-      {auth._id ? (
-        <>
+      <Outlet />
+
       {cards.map((element) => {
         return <CardUser key={element._id} {...element} />;
       })}
-      </>
-      ) : ('Debes estar autenticado para acceder')
-      }
+
     </div>
   );
 }
