@@ -1,4 +1,4 @@
-const API_URL = "https://challenge-me-backend-uu82.onrender.com/categories";
+const API_URL = "https://challengeme-uy0s.onrender.com/categories";
 
 export const getAllCategories = async () => {
   const response = await fetch(API_URL);
