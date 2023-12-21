@@ -1,6 +1,6 @@
 // apiChallengeService.js
 
-const API_URL = "https://challenge-me-backend-uu82.onrender.com/challenges";
+const API_URL = "https://challengeme-uy0s.onrender.com/challenges";
 
 // Función para obtener todos los desafíos
 export const getAllChallenges = async () => {
