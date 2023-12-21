@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const {data} = await axios.post('https://challenge-me-backend-uu82.onrender.com/auth/login', {email, password})
+      const {data} = await axios.post('https://challengeme-uy0s.onrender.com/auth/login', {email, password})
       
       localStorage.setItem('jsontoken', data.jsontoken)
       setAuth(data)
