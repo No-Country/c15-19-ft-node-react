@@ -9,7 +9,10 @@ const Login = () => {
   const[email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const {setAuth} = useAuth()
+  const {auth, setAuth, loading} = useAuth()
+
+  console.log(auth)
+  console.log(loading)
 
   const navigate = useNavigate()
 
@@ -17,7 +20,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const {data} = await axios.post('https://challenge-me-backend-uu82.onrender.com/auth/login', {email, password})
+      const {data} = await axios.post('https://challengeme-uy0s.onrender.com/auth/login', {email, password})
       
       localStorage.setItem('jsontoken', data.jsontoken)
       setAuth(data)

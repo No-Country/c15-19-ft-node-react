@@ -31,14 +31,12 @@ const AuthProvider = ({children}) => {
             }
 
             try {
-                const { data } = await axios('https://challenge-me-backend-uu82.onrender.com/auth/profile', config);
+                const { data } = await axios('https://challengeme-uy0s.onrender.com/auth/profile', config);
                 setAuth(data);
                 navigate('/home');
               } catch (error) {
-                console.error("Error en la solicitud:", error);
-                if (error.response) {
-                  console.error("Respuesta del servidor:", error.response.data);
-                }
+                console.log(error)
+                console.log(token)
                 setAuth({});
               } finally {
                 setLoading(false);
