@@ -25,12 +25,7 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 export default function App() {
   return (
 
-    
-    <Router>
-      {/* <ContextProvider> */}
-        <AuthProvider>
-          <Routes>
-            <Route path="/landing-page" element={<LandingPage />} />
+  
 
         <Router>
           {/* <ContextProvider> */}
