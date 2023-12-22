@@ -12,7 +12,6 @@ const cors = require("cors")
 //   'http://localhost:5173',
 //   'https://challengeme-uy0s.onrender.com'
 // ];
-
 // const corsOptions = {
 //     origin: function(origin, callback){
 //         if(whitelist.includes(origin)) {

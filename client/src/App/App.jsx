@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes,HashRouter } from "react-router-dom";
 import { AuthProvider } from "../context/AuthProvider";
 
 import Register from "../pages/Register/Register";
@@ -24,6 +24,13 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
   return (
+
+    
+    <Router>
+      {/* <ContextProvider> */}
+        <AuthProvider>
+          <Routes>
+            <Route path="/landing-page" element={<LandingPage />} />
 
         <Router>
           {/* <ContextProvider> */}
