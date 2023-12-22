@@ -7,22 +7,25 @@ server.name = "API";
 const cors = require("cors")
 
 //Configurar CORS
-const whitelist = ['https://challengesme.vercel.app','http://localhost:5173','https://challengeme-uy0s.onrender.com'];
+// const whitelist = [
+//   'https://challengesme.vercel.app',
+//   'http://localhost:5173',
+//   'https://challengeme-uy0s.onrender.com'
+// ];
+// const corsOptions = {
+//     origin: function(origin, callback){
+//         if(whitelist.includes(origin)) {
+//         //Puede consultar la API
+//         callback(null, true)
+//         } else {
+//             //No ésta permitido
+//             callback(new Error('Error de Cors'))
 
-const corsOptions = {
-    origin: function(origin, callback){
-        if(whitelist.includes(origin)) {
-        //Puede consultar la API
-        callback(null, true)
-        } else {
-            //No ésta permitido
-            callback(new Error('Error de Cors'))
+//         }
+//     }
+// }
 
-        }
-    }
-}
-
-server.use(cors(corsOptions))
+// server.use(cors(corsOptions))
 
 server.use(express.json());
 server.use(morgan("dev"))

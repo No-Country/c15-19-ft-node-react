@@ -24,46 +24,47 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
   return (
-    
-    <Router>
-      {/* <ContextProvider> */}
-        <AuthProvider>
-          <Routes>
-            <Route path="/landing-page" element={<LandingPage />} />
 
-            <Route path="/" element={<AuthLayout />}>
-              <Route index element={<Login />} />
-              <Route path="register" element={<Register />} />
-              <Route path="verify-account/:id" element={<VerifyAccount />} />
-            </Route>
+  
 
-            <Route path="/" element={<Wrapper />}>
-              <Route path="home" element={<Home />} />
-              <Route path="home/comments" element={<Comments />} />
-              <Route path="/categories" element={<Categories />} />
-              {/* <Route path="/profile" element={<Profile />} /> */}
-              <Route path="/profile/achievements" element={<Achievements />} />
-              <Route path="/profile/sync" element={<Sync />} />
-              <Route path="/profile/privacy" element={<Privacy />} />
-              <Route path="/profile/security" element={<Security />} />
+        <Router>
+          {/* <ContextProvider> */}
+            <AuthProvider>
+              <Routes>
+                <Route path="/landing-page" element={<LandingPage />} />
 
-              <Route path="/profile/:id" element={<Profile />} />
-              <Route path="/profile/:id/privacy" element={<Privacy />} />
-              <Route
-                path="/profile/:id/editprofile"
-                element={<EditProfile />}
-              />
+                <Route path="/" element={<AuthLayout />}>
+                  <Route index element={<Login />} />
+                  <Route path="register" element={<Register />} />
+                  <Route path="verify-account/:token" element={<VerifyAccount />} />
+                </Route>
 
-              <Route path="/categories/:name" element={<Category />} />
+                <Route path="/" element={<Wrapper />}>
+                  <Route path="home" element={<Home />} />
+                  <Route path="home/comments" element={<Comments />} />
+                  <Route path="/categories" element={<Categories />} />
+                  {/* <Route path="/profile" element={<Profile />} /> */}
+                  <Route path="/profile/achievements" element={<Achievements />} />
+                  <Route path="/profile/sync" element={<Sync />} />
+                  <Route path="/profile/privacy" element={<Privacy />} />
+                  <Route path="/profile/security" element={<Security />} />
 
-              <Route path="/createpost" element={<CrearPost />} />
+                  <Route path="/profile/:id" element={<Profile />} />
+                  <Route path="/profile/:id/privacy" element={<Privacy />} />
+                  <Route
+                    path="/profile/:id/editprofile"
+                    element={<EditProfile />}
+                  />
 
-              <Route path="*" element={<Error />} />
-            </Route>
-          </Routes>
-        </AuthProvider>
-      {/* </ContextProvider> */}
-    </Router>
-      
+                  <Route path="/categories/:name" element={<Category />} />
+
+                  <Route path="/createpost" element={<CrearPost />} />
+
+                  <Route path="*" element={<Error />} />
+                </Route>
+              </Routes>
+            </AuthProvider>
+          {/* </ContextProvider> */}
+        </Router>
   );
 }
