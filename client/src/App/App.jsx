@@ -24,7 +24,7 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function App() {
   return (
-    <HashRouter>
+    
     <Router>
       {/* <ContextProvider> */}
         <AuthProvider>
@@ -64,6 +64,6 @@ export default function App() {
         </AuthProvider>
       {/* </ContextProvider> */}
     </Router>
-      </HashRouter>
+      
   );
 }
