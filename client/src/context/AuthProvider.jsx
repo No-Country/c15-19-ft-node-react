@@ -31,7 +31,7 @@ const AuthProvider = ({children}) => {
             }
 
             try {
-                const { data } = await axios('http://localhost:3001/auth/profile', config);
+                const { data } = await axios('https://challengeme-uy0s.onrender.com/auth/profile', config);
                 setAuth(data);
                 navigate('/home');
               } catch (error) {
