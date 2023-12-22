@@ -28,7 +28,7 @@ export default function App() {
   
 
         <Router>
-          {/* <ContextProvider> */}
+          <ContextProvider>
             <AuthProvider>
               <Routes>
                 <Route path="/landing-page" element={<LandingPage />} />
@@ -64,7 +64,7 @@ export default function App() {
                 </Route>
               </Routes>
             </AuthProvider>
-          {/* </ContextProvider> */}
+          </ContextProvider>
         </Router>
   );
 }
