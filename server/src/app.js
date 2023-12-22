@@ -7,7 +7,11 @@ server.name = "API";
 const cors = require("cors")
 
 //Configurar CORS
-const whitelist = [process.env.FRONTEND_URL]
+const whitelist = [
+  'https://challengesme.vercel.app',
+  'http://localhost:5173',
+  'https://challengeme-uy0s.onrender.com'
+];
 
 const corsOptions = {
     origin: function(origin, callback){
