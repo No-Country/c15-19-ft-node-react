@@ -26,7 +26,7 @@ const emailVerifyAccount = async (datos) => {
       html: `<p>Hola: ${name}, Verifica tu cuenta en ChallengeMe y comienza con nuevos desafíos!!</p>
       <p>Tu cuenta ya esta casi lista, solo debes comprobarla en el siguiente enlace: 
       
-      <a href=https://challengesme.vercel.app/#/verify-account/${token}>Verifica tu cuenta para poder ser un Challenger</a>
+      <a href=https://challengesme.vercel.app/verify-account/${token}>Verifica tu cuenta para poder ser un Challenger</a>
       
       <p>Si tu no creaste esta cuenta, puedes ignorar el mensaje</p>
       
